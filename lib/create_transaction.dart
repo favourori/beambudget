@@ -15,20 +15,17 @@ class _CreateTransactionState extends State<CreateTransaction> {
   final titleController = TextEditingController();
   final subtitleController = TextEditingController();
   final amountController = TextEditingController();
-  Color color = moneyCategory == 1 ? Colors.green : Colors.red;
 
   //final action  = moneyCategory == 1 ?
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      moneyCategory = 1;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
+    Color color = moneyCategory == 1 ? Colors.green : Colors.red;
     return Scaffold(
       appBar: AppBar(
         title: Text("Create transaction"),
