@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './transaction_item.dart';
 import './model/transaction.dart';
 import './model/transaction_data.dart';
+import 'package:provider/provider.dart';
 
 class Transactions extends StatefulWidget {
   @override
@@ -22,44 +23,29 @@ class _TransactionsState extends State<Transactions> {
           //height: 800.0,
           //color: Colors.white,
           child: Container(
-            padding: EdgeInsets.fromLTRB(20.0, 23.0, 20.0, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 4,
-                      child: Text(
-                        "Recent",
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: FlatButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        child: Text(
-                          "See all",
-                          style: TextStyle(color: Colors.blue[900]),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                TransactionItem(
-                  title: "Salary",
-                  subtitle: "Monthly Salary",
-                  color: Colors.green[600],
-                  amount: "\$7000",
-                  avatarText: "S",
-                ),
-              ],
-            ),
-          )),
+              padding: EdgeInsets.fromLTRB(20.0, 23.0, 20.0, 0),
+              child: ListView.builder(
+                itemCount:
+                    Provider.of<TransactionData>(context).numberOfTransaction(),
+                itemBuilder: (context, index) {
+                  return TransactionItem(
+                    title: Provider.of<TransactionData>(context)
+                        .transactions[index]
+                        .title,
+                    subtitle: Provider.of<TransactionData>(context)
+                        .transactions[index]
+                        .subtitle,
+                    color: Provider.of<TransactionData>(context)
+                        .transactions[index]
+                        .color,
+                    amount:
+                        "\$${Provider.of<TransactionData>(context).transactions[index].amount.toString()}",
+                    avatarText: Provider.of<TransactionData>(context)
+                        .transactions[index]
+                        .getAvatarText(),
+                  );
+                },
+              ))),
     );
   }
 }

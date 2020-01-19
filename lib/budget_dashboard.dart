@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import './model/transaction_data.dart';
+import 'package:provider/provider.dart';
+import './model/transaction_data.dart';
 
 class BudgetDashboard extends StatelessWidget {
-  const BudgetDashboard({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,7 +26,7 @@ class BudgetDashboard extends StatelessWidget {
                 ),
                 SizedBox(height: 12.0),
                 Text(
-                  "\$5,000",
+                  "\$${Provider.of<TransactionData>(context).moneyIn.toString()}",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 19.0,
@@ -59,7 +58,7 @@ class BudgetDashboard extends StatelessWidget {
                 ),
                 SizedBox(height: 12.0),
                 Text(
-                  "\$2,000",
+                  "\$${Provider.of<TransactionData>(context).moneyOut.toString()}",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 19.0,

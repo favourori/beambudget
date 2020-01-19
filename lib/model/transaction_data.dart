@@ -2,30 +2,11 @@ import '../model/transaction.dart';
 import 'package:flutter/material.dart';
 
 class TransactionData extends ChangeNotifier {
-  double balance = 6500.0;
+  double balance = 0.0;
+  double moneyIn = 0.0;
+  double moneyOut = 0.0;
 
-  List<Transaction> transactions = [
-    Transaction(
-        title: "Salary",
-        subtitle: "Monthly Salary",
-        color: Colors.green[600],
-        amount: 7000.0,
-        avatarText: "S"),
-    Transaction(
-      title: "Car Payment",
-      subtitle: "Monthly Payment",
-      color: Colors.red[600],
-      amount: 400.0,
-      avatarText: "C",
-    ),
-    Transaction(
-      title: "Shopping",
-      subtitle: "Monthly shopping",
-      color: Colors.red[600],
-      amount: 100.0,
-      avatarText: "S",
-    ),
-  ];
+  List<Transaction> transactions = [];
 
   double getBalance() {
     return balance;
@@ -37,11 +18,18 @@ class TransactionData extends ChangeNotifier {
 
   void addMoney(amount) {
     balance += amount;
+    moneyIn += amount;
     notifyListeners();
   }
 
   void deductMoney(amount) {
     balance -= amount;
+    moneyOut += amount;
+    notifyListeners();
+  }
+
+  void addTransaction(Transaction transaction) {
+    transactions.add(transaction);
     notifyListeners();
   }
 }

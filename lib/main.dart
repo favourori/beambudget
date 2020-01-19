@@ -4,6 +4,7 @@ import './home_screen.dart';
 import './manage_money.dart';
 import 'package:provider/provider.dart';
 import './model/transaction_data.dart';
+import './create_transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +23,8 @@ class _MyAppState extends State<MyApp> {
         initialRoute: '/',
         routes: {
           '/': (context) => HomeScreen(),
-          '/money': (context) => ManageMoney()
+          '/money': (context) => ManageMoney(),
+          '/create_transaction': (context) => CreateTransaction()
         },
       ),
     );
