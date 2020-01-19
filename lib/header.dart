@@ -13,7 +13,7 @@ class HeaderSection extends StatelessWidget {
         children: <Widget>[
           Text(
             "Welcome back",
-            style: TextStyle(fontSize: 25.0, color: Colors.grey),
+            style: TextStyle(fontSize: 26.0, color: Colors.grey),
           ),
           SizedBox(
             height: 4.0,
@@ -21,9 +21,9 @@ class HeaderSection extends StatelessWidget {
           Text(
             "Beam Budget",
             style: TextStyle(
-                fontSize: 35.0,
+                fontSize: 39.0,
                 color: Color(0xFF2c3e50),
-                fontWeight: FontWeight.w600),
+                fontWeight: FontWeight.w700),
           )
         ],
       ),

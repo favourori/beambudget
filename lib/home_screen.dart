@@ -20,16 +20,16 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 HeaderSection(),
                 SizedBox(
-                  height: 28.0,
+                  height: 38.0,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    //labelText: "Search",
-                    hintText: "search",
-                    prefixIcon: Icon(Icons.search),
-                  ),
-                ),
+                // TextField(
+                //   decoration: InputDecoration(
+                //     border: OutlineInputBorder(),
+                //     //labelText: "Search",
+                //     hintText: "search",
+                //     prefixIcon: Icon(Icons.search),
+                //   ),
+                // ),
                 SizedBox(
                   height: 25.0,
                 ),

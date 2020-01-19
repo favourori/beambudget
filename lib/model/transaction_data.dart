@@ -32,4 +32,38 @@ class TransactionData extends ChangeNotifier {
     transactions.add(transaction);
     notifyListeners();
   }
+
+  String getCreditReport() {
+    if (balance == 0) {
+      return "Unavailable";
+    }
+    if (balance > 1000) {
+      return "Excellent";
+    }
+
+    if (balance < 1000) {
+      return "Fair";
+    }
+
+    if (balance < 500) {
+      return "Poor";
+    }
+  }
+
+  int getBudgetScore() {
+    if (balance == 0) {
+      return 0;
+    }
+    if (balance > 1000) {
+      return 800;
+    }
+
+    if (balance < 1000) {
+      return 500;
+    }
+
+    if (balance < 500) {
+      return 300;
+    }
+  }
 }

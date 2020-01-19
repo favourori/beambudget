@@ -65,11 +65,14 @@ class ActionSection extends StatelessWidget {
                     ),
                     SizedBox(height: 12.0),
                     Text(
-                      "Budget",
+                      "Budget Score",
                       style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
                     SizedBox(height: 3.0),
-                    Text("15 items",
+                    Text(
+                        Provider.of<TransactionData>(context)
+                            .getBudgetScore()
+                            .toString(),
                         style: TextStyle(color: Colors.white, fontSize: 13.0))
                   ],
                 ),
@@ -99,11 +102,12 @@ class ActionSection extends StatelessWidget {
                     ),
                     SizedBox(height: 12.0),
                     Text(
-                      "Credit score",
+                      "Budget Health",
                       style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
                     SizedBox(height: 3.0),
-                    Text("5 items",
+                    Text(
+                        Provider.of<TransactionData>(context).getCreditReport(),
                         style: TextStyle(color: Colors.white, fontSize: 13.0))
                   ],
                 ),
@@ -134,7 +138,7 @@ class ActionSection extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
                     SizedBox(height: 3.0),
-                    Text("19 items",
+                    Text("coming soon",
                         style: TextStyle(color: Colors.white, fontSize: 13.0))
                   ],
                 ),
