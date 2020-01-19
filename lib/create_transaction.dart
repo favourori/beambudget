@@ -2,7 +2,6 @@ import 'package:beambudget/model/transaction.dart';
 import 'package:flutter/material.dart';
 import './model/transaction_data.dart';
 import 'package:provider/provider.dart';
-import './model/transaction_data.dart';
 
 class CreateTransaction extends StatefulWidget {
   @override
@@ -21,6 +20,7 @@ class _CreateTransactionState extends State<CreateTransaction> {
   @override
   void initState() {
     super.initState();
+    moneyCategory = 1;
   }
 
   @override
@@ -129,7 +129,7 @@ class _CreateTransactionState extends State<CreateTransaction> {
                             subtitle: subtitleController.text,
                             amount: double.parse(amountController.text),
                             color: color,
-                            avatarText: titleController.text[0]),
+                            avatarText: titleController.text[0].toUpperCase()),
                       );
 
                   if (moneyCategory == 1) {

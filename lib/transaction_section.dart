@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './transaction_item.dart';
-import './model/transaction.dart';
 import './model/transaction_data.dart';
 import 'package:provider/provider.dart';
 

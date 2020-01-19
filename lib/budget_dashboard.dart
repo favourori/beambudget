@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './model/transaction_data.dart';
 import 'package:provider/provider.dart';
-import './model/transaction_data.dart';
 
 class BudgetDashboard extends StatelessWidget {
   @override
