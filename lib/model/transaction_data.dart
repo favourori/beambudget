@@ -1,5 +1,4 @@
 import '../model/transaction.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class TransactionData extends ChangeNotifier {
@@ -30,5 +29,19 @@ class TransactionData extends ChangeNotifier {
 
   double getBalance() {
     return balance;
+  }
+
+  int numberOfTransaction() {
+    return transactions.length;
+  }
+
+  void addMoney(amount) {
+    balance += amount;
+    notifyListeners();
+  }
+
+  void deductMoney(amount) {
+    balance -= amount;
+    notifyListeners();
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './model/transaction_data.dart';
+import 'package:provider/provider.dart';
 
 class ActionSection extends StatelessWidget {
   @override
@@ -34,7 +36,8 @@ class ActionSection extends StatelessWidget {
                         style: TextStyle(color: Colors.white, fontSize: 16.0),
                       ),
                       SizedBox(height: 3.0),
-                      Text("10 items",
+                      Text(
+                          "${Provider.of<TransactionData>(context).numberOfTransaction()} items",
                           style: TextStyle(color: Colors.white, fontSize: 13.0))
                     ],
                   ),

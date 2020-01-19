@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import './budget_dashboard.dart';
 import './transaction_section.dart';
+import 'package:provider/provider.dart';
+import './model/transaction_data.dart';
 
 class ManageMoney extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _ManageMoneyState extends State<ManageMoney> {
                           ),
                           SizedBox(height: 10.0),
                           Text(
-                            "\$18,000",
+                            '\$${Provider.of<TransactionData>(context).getBalance()}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 32.0,
