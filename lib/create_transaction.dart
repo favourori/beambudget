@@ -114,13 +114,6 @@ class _CreateTransactionState extends State<CreateTransaction> {
               ),
               MaterialButton(
                 onPressed: () {
-                  //Transaction transaction = Transaction()
-                  print(titleController.text);
-                  print(subtitleController.text);
-                  print(double.parse(amountController.text));
-                  print(moneyCategory);
-                  print(color);
-
                   Provider.of<TransactionData>(context, listen: false)
                       .transactions
                       .add(
