@@ -117,30 +117,36 @@ class ActionSection extends StatelessWidget {
               width: 15.0,
             ),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(6.0),
-                    ),
-                    color: Colors.brown[300]),
-                padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    CircleAvatar(
-                      child: Icon(Icons.credit_card),
-                      backgroundColor: Colors.white,
-                      radius: 30.0,
-                    ),
-                    SizedBox(height: 12.0),
-                    Text(
-                      "Credit cards",
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
-                    ),
-                    SizedBox(height: 3.0),
-                    Text("coming soon",
-                        style: TextStyle(color: Colors.white, fontSize: 13.0))
-                  ],
+              child: InkWell(
+                onTap: () {
+                  Provider.of<TransactionData>(context, listen: false)
+                      .resetBudget();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(6.0),
+                      ),
+                      color: Colors.brown[300]),
+                  padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      CircleAvatar(
+                        child: Icon(Icons.restore),
+                        backgroundColor: Colors.white,
+                        radius: 30.0,
+                      ),
+                      SizedBox(height: 12.0),
+                      Text(
+                        "Reset Budget",
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                      SizedBox(height: 3.0),
+                      Text("start over",
+                          style: TextStyle(color: Colors.white, fontSize: 13.0))
+                    ],
+                  ),
                 ),
               ),
             )

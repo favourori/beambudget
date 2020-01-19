@@ -62,4 +62,9 @@ class TransactionData extends ChangeNotifier {
 
     return 300;
   }
+
+  void resetBudget() {
+    transactions.clear();
+    notifyListeners();
+  }
 }
