@@ -143,7 +143,7 @@ class _CreateTransactionState extends State<CreateTransaction> {
                         .deductMoney(double.parse(amountController.text));
                   }
 
-                  Navigator.pushReplacementNamed(context, '/money');
+                  Navigator.popAndPushNamed(context, '/money');
                 },
                 child: Text(
                   "Create transaction",

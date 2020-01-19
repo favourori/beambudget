@@ -63,7 +63,7 @@ class _ManageMoneyState extends State<ManageMoney> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue[900],
         onPressed: () {
-          Navigator.pushNamed(context, '/create_transaction');
+          Navigator.popAndPushNamed(context, '/create_transaction');
         },
         child: Icon(Icons.add),
       ),
