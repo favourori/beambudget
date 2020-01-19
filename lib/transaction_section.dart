@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import './transaction_item.dart';
+import './model/transaction.dart';
+import './model/transaction_data.dart';
 
 class Transactions extends StatelessWidget {
-  const Transactions({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -54,27 +52,6 @@ class Transactions extends StatelessWidget {
                     color: Colors.green[600],
                     amount: "\$7000",
                     avatarText: "S",
-                  ),
-                  TransactionItem(
-                    title: "Car Payment",
-                    subtitle: "Monthly Payment",
-                    color: Colors.red[600],
-                    amount: "\$400",
-                    avatarText: "C",
-                  ),
-                  TransactionItem(
-                    title: "Clothe shopping",
-                    subtitle: "For business meeting",
-                    color: Colors.red[600],
-                    amount: "\$400",
-                    avatarText: "C",
-                  ),
-                  TransactionItem(
-                    title: "Side business",
-                    subtitle: "Web development",
-                    color: Colors.green[600],
-                    amount: "\$600",
-                    avatarText: "C",
                   ),
                 ],
               ),
