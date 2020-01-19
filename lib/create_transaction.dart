@@ -146,7 +146,7 @@ class _CreateTransactionState extends State<CreateTransaction> {
                   Navigator.pushReplacementNamed(context, '/money');
                 },
                 child: Text(
-                  "Add",
+                  "Create transaction",
                   style: TextStyle(color: Colors.white),
                 ),
                 color: Colors.blue[900],
