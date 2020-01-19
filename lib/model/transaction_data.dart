@@ -37,37 +37,29 @@ class TransactionData extends ChangeNotifier {
     if (balance == 0) {
       return "Unavailable";
     }
-    if (balance > 1000) {
+    if (balance >= 1000) {
       return "Excellent";
     }
 
-    if (balance < 1000) {
-      return "Fair";
-    }
-
-    if (balance < 500) {
+    if (balance <= 500) {
       return "Poor";
     }
 
-    return "Unavailable";
+    return "Fair";
   }
 
   int getBudgetScore() {
     if (balance == 0) {
       return 0;
     }
-    if (balance > 1000) {
+    if (balance >= 1000) {
       return 800;
     }
 
-    if (balance < 1000) {
-      return 500;
-    }
-
-    if (balance < 500) {
+    if (balance <= 500) {
       return 300;
     }
 
-    return 0;
+    return 300;
   }
 }
