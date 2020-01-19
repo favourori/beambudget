@@ -48,6 +48,8 @@ class TransactionData extends ChangeNotifier {
     if (balance < 500) {
       return "Poor";
     }
+
+    return "Unavailable";
   }
 
   int getBudgetScore() {
@@ -65,5 +67,7 @@ class TransactionData extends ChangeNotifier {
     if (balance < 500) {
       return 300;
     }
+
+    return 0;
   }
 }
