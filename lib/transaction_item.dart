@@ -13,6 +13,9 @@ class TransactionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: (){
+        
+      },
       contentPadding: EdgeInsets.all(0),
       title: Text(title),
       subtitle: Text(subtitle),

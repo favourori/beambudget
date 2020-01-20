@@ -14,6 +14,9 @@ class _CreateTransactionState extends State<CreateTransaction> {
   final titleController = TextEditingController();
   final subtitleController = TextEditingController();
   final amountController = TextEditingController();
+  bool validateTitle = false;
+  bool validateSubtitle = false;
+  bool validateAmount = false;
 
   //final action  = moneyCategory == 1 ?
 
@@ -26,6 +29,7 @@ class _CreateTransactionState extends State<CreateTransaction> {
   @override
   Widget build(BuildContext context) {
     Color color = moneyCategory == 1 ? Colors.green : Colors.red;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Create transaction"),
@@ -40,8 +44,8 @@ class _CreateTransactionState extends State<CreateTransaction> {
                 controller: titleController,
                 decoration: InputDecoration(
                     labelText: "Title",
-                    //errorText: "Title is required",
-                    
+                    errorText: validateTitle ? "Title is required" : null,
+
                     //hintText: "Title",
                     border: OutlineInputBorder()),
               ),
@@ -53,6 +57,8 @@ class _CreateTransactionState extends State<CreateTransaction> {
                 controller: subtitleController,
                 decoration: InputDecoration(
                     labelText: "Description",
+                    errorText:
+                        validateSubtitle ? "Description is required" : null,
                     //hintText: "Title",
                     border: OutlineInputBorder()),
               ),
@@ -61,8 +67,12 @@ class _CreateTransactionState extends State<CreateTransaction> {
               ),
               TextField(
                 controller: amountController,
+                keyboardType: TextInputType.numberWithOptions(),
+                maxLength: 10,
                 decoration: InputDecoration(
+
                     labelText: "Amount",
+                    errorText: validateAmount ? "Amount is required" : null,
                     //hintText: "Title",
                     border: OutlineInputBorder()),
               ),
@@ -116,26 +126,49 @@ class _CreateTransactionState extends State<CreateTransaction> {
               ),
               MaterialButton(
                 onPressed: () {
-                  Provider.of<TransactionData>(context, listen: false)
-                      .transactions
-                      .add(
-                        Transaction(
-                            title: titleController.text,
-                            subtitle: subtitleController.text,
-                            amount: double.parse(amountController.text),
-                            color: color,
-                            avatarText: titleController.text[0].toUpperCase()),
-                      );
-
-                  if (moneyCategory == 1) {
-                    Provider.of<TransactionData>(context, listen: false)
-                        .addMoney(double.parse(amountController.text));
+                  if (titleController.text.isEmpty) {
+                    setState(() {
+                      titleController.text.isEmpty
+                          ? validateTitle = true
+                          : validateTitle = false;
+                    });
+                  } else if (subtitleController.text.isEmpty) {
+                    setState(() {
+                      validateTitle = false;
+                      validateSubtitle = true;
+                    });
+                  } else if (amountController.text.isEmpty) {
+                    setState(() {
+                      validateSubtitle = false;
+                      validateAmount = true;
+                    });
                   } else {
-                    Provider.of<TransactionData>(context, listen: false)
-                        .deductMoney(double.parse(amountController.text));
-                  }
+                    setState(() {
+                      validateAmount = false;
+                    });
 
-                  Navigator.popAndPushNamed(context, '/money');
+                    Provider.of<TransactionData>(context, listen: false)
+                        .transactions
+                        .add(
+                          Transaction(
+                              title: titleController.text,
+                              subtitle: subtitleController.text,
+                              amount: double.parse(amountController.text),
+                              color: color,
+                              avatarText:
+                                  titleController.text[0].toUpperCase()),
+                        );
+
+                    if (moneyCategory == 1) {
+                      Provider.of<TransactionData>(context, listen: false)
+                          .addMoney(double.parse(amountController.text));
+                    } else {
+                      Provider.of<TransactionData>(context, listen: false)
+                          .deductMoney(double.parse(amountController.text));
+                    }
+
+                    Navigator.popAndPushNamed(context, '/money');
+                  }
                 },
                 child: Text(
                   "Create transaction",
