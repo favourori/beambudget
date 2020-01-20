@@ -33,13 +33,15 @@ class _CreateTransactionState extends State<CreateTransaction> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+          padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 40.0),
           child: Column(
             children: <Widget>[
               TextField(
                 controller: titleController,
                 decoration: InputDecoration(
                     labelText: "Title",
+                    //errorText: "Title is required",
+                    
                     //hintText: "Title",
                     border: OutlineInputBorder()),
               ),

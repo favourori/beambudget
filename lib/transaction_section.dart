@@ -24,6 +24,7 @@ class _TransactionsState extends State<Transactions> {
           child: Container(
               padding: EdgeInsets.fromLTRB(20.0, 23.0, 20.0, 0),
               child: ListView.builder(
+                
                 itemCount:
                     Provider.of<TransactionData>(context).numberOfTransaction(),
                 itemBuilder: (context, index) {

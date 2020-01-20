@@ -38,7 +38,7 @@ class BudgetDashboard extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 15.0),
+        SizedBox(width: 25.0),
         Expanded(
           child: Container(
             decoration: BoxDecoration(
